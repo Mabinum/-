@@ -63,7 +63,7 @@ window.addEventListener('scroll',function(){
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach(function(fadeEl,index){
   // gsap.to(요소,지속시간,옵션:,{});
-gsap.to(fadeEl, 1,{ 
+gsap.to(fadeEl, 0.4,{ 
   opacity:1,
   delay: (index+1)*0.7//0.7s, 1.4s, 2.1s, 2.8s
 });
@@ -72,3 +72,19 @@ gsap.to(fadeEl, 1,{
 });
 // `${index+1}`이건 문자사용할때 사용
 
+// 공지사항 수직 슬라이드 가능
+// new 키워드로 Swiper 객체를 생성 => 슬라이드 기능을 생성
+// new Swiper(요소.{});
+// 첫 번째 인수: 슬라이드 기능을 적용할 요소의 선택자
+// 두 번째 인수: 다양한 옵션을 객체 데이터로 전달(API 페이지참고)
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'vertical', //수직 슬라이드
+  loop: true, //반복 재생 여부, 1 -> 2 -> 3 -> 4 -> 다시 1
+  autoplay: true //자동 재생 여부 
+});
+
+
+
+
+// swiper 사이트 들어가서 설정들을 보고 나중에 적용가능할듯
