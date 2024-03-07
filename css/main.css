@@ -7,6 +7,8 @@ body {
   line-height:  1.4;
   color: #333;
   /* 위 속성들은 모두 상속되기에 전체 스타일을 한번에 제어 */
+  height: 4000px;
+  overflow-x: hidden;
 }
 
 a{
@@ -24,14 +26,80 @@ a{
   position: relative;
 }
 
+img{
+  /* 이미지가 인라인 요소라서 발생하는 문자 기준선(Baseline)아래의 공간을 제거하기 위해 */
+  display: block;
+}
+
+/* 전역 버튼 스타일 */
+/* 버튼과 같이 여러 곳에서 반복 사용되는 요소를 공통 스타일로 작업하면, 매번 다시 작성할 필요가 없음 */
+.btn{
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+  display: block; /* a, span 같은 인라인 요소를 버튼으로 사용할 수도 있으니 블록으로 지정*/
+  transition: 0.4s;
+}
+.btn:hover{
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--brown{
+  color: #592b18;
+  border-color: #592b18;
+}
+
+.btn.btn--brown:hover{
+  color: #fff;
+  background-color: #592b18;
+}
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--gold {
+  color: #d9aa8a;
+  border-color: #d9aa8a;
+}
+.btn.btn--gold:hover {
+  color: #fff;
+  background-color: #d9aa8a;
+}
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+
 /* HEADER */
 header{
-  background-color: #f6f5ef;;
+  width: 100%;
+  background-color: #f6f5ef;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%; /*가로 너비를 지정하지 않으면 최소한으로 줄어드려고 함*/
+  position: fixed;
+  top: 0;
+  /* fixed, absoluted 쓸때 top이든 bottom이든 값을 줘야함 안그러면 만드는도중 깨질수가있음 */
+  z-index: 9;
 }
 header > .inner{
   /* background-color: orange; */
   height: 120px;
-  border-bottom: 1px solid #e5e5e5;
 }
 header .logo{
   position: absolute;
@@ -157,12 +225,14 @@ header .main-menu .item:hover .item_contents{
 }
 header .main-menu .item .item_contents > ul.inner{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: left; */
+  /* justify도 내가 메뉴간의 간격 조절하기 위해서 넣은것 */
   padding: 20px 0;
 }
 header .main-menu .item .item_contents > ul.inner > li {
   /* 상세 메뉴 가로 너비를 통일 */
-  position: relative;
+  /* position: relative; */
+  /* relative는 내가 메뉴간의 간격을 조절하기 위해서 넣어본것 */
   width: 200px;
 }
 header .main-menu .item .item_contents > ul.inner > li h4{
@@ -178,4 +248,76 @@ header .main-menu .item .item_contents > ul.inner > li ul li{
 }
 eader .main-menu .item .item_contents > ul.inner > li ul li:hover{
   color: #669900;
+}
+
+header .badges {
+  position: fixed;
+  top: 132px;
+  right: 12px;
+  transition: 0.4s;
+}
+
+header .badges .badge{
+  border-radius: 10px;
+  overflow: hidden;
+  /* div영역을 벗어나기에 overflow : hidden;으로 잘라서 border-radius가 가능하게끔 만들어줌 */
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.3);
+  /* X축거리, Y축거리, 흐림 처리(blur) 범위, 확대/축소(spread)범위, 색상 */
+  /* 그림자 */
+  cursor: pointer;
+}
+
+/* VISUAL */
+.visual{
+  /* 중요 */
+  /* 헤더가 flex되어 일반 배치 흐름에서 벗어남(주변 요소들과 상호작용하지 않음) */
+  /* 헤더 다음에 오는 섹션은 헤더의 높이만큼 외부 여백 추가 필요 */
+  margin-top: 120px;
+  background-image: url('../images/visual_bg.jpg');
+  background-position: center;
+}
+.visual .inner {
+  height: 646px;
+  /* background-color: orange; */
+}
+
+.visual .title{
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+.visual .title .btn{
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+.visual .spoon{
+  position: absolute;
+  bottom: 0;
+  left: 275px; 
+}
+.visual .fade-in {
+  /* 투명한 상태에서 시작되도록 세팅 */
+  opacity: 0;
 }

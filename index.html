@@ -43,6 +43,13 @@
   <!-- 그 외 fontawesome, bootstrap icon 등 -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet"> 
+
+  <!-- GSAP -->
+  <!-- 순서 주의(main.js에서 사용하니깐 더 앞에) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" 
+  integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" 
+  crossorigin="anonymous" 
+  referrerpolicy="no-referrer"></script>
 </head>
 <body>
   <!-- <span>테스트</span>
@@ -336,6 +343,37 @@
         </li>
       </ul>
     </div>
+
+    <!-- 전역 배지(고정 배너) 만들기 -->
+    <div class="badges">
+      <div class="badge">
+        <img src="./images/badge1.jpg" alt="Badge">
+      </div>
+      <div>
+        <img src="./images/badge2.jpg" alt="Badge">
+      </div>
+    </div>
   </header>
+
+  <!-- VISUAL -->
+  <section class="visual">
+    <div class="inner">
+      <div class="fade-in title">
+        <img src="images/visual_title.png" alt="">
+        <a href="javascript:void(0)" class="btn btn--brown">자세히 보기</a>
+      </div>
+      <div class="fade-in">
+        <img src="images/visual_cup1.png" alt="" class="cup1 image">
+        <img src="images/visual_cup1_text.png" alt="" class="cup1 text">
+      </div>
+      <div class="fade-in">
+        <img src="images/visual_cup2.png" alt="" class="cup2 image">
+        <img src="images/visual_cup2_text.png" alt="" class="cup2 text">
+      </div>
+      <div class="fade-in">
+        <img src="images/visual_spoon.png" alt="" class="spoon">
+      </div>
+    </div>
+  </section>
 </body>
 </html>
